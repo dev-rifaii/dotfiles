@@ -1,0 +1,18 @@
+general.import = [
+	"~/.config/alacritty/dracula-theme.toml"
+]
+
+[font]
+size = 12.0
+
+[font.normal]
+family = "Monospace"
+style = "Regular"
+
+[window.dimensions]
+columns = 80
+lines = 24
+
+[window.padding]
+x = 2
+y = 2
