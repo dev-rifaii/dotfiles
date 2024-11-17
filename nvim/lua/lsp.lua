@@ -27,10 +27,19 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
+--LSP
 require('lspconfig').lua_ls.setup({})
+require('lspconfig').jdtls.setup({
+  root_dir = require('lspconfig').util.root_pattern('pom.xml', 'build.gradle', '.git'),
+  settings = {
+      java = {
+          -- Custom settings
+      }
+  }
+})
 
+--Auto complete
 local cmp = require('cmp')
-
 cmp.setup({
     completion = { completeopt = 'menu,menuone,noinsert'},
     sources = {
@@ -58,3 +67,4 @@ cmp.setup({
   },
 })
 
+--vim.lsp.set_log_level("debug")

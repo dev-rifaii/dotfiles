@@ -16,6 +16,10 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xrdb -merge ~/.Xresources
 exec_always --no-startup-id feh --bg-fill ~/.config/wallpapers/temple.jpg
 exec_always --no-startup-id picom --config ~/.config/picom.conf -b 
+exec_always --no-startup-id xset s off
+exec_always --no-startup-id xset -dpms
+exec_always --no-startup-id "setxkbmap -layout us,ee -option 'grp:alt_shift_toggle'"
+
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
