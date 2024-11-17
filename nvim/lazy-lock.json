@@ -5,5 +5,7 @@
   "nvim-autopairs": { "branch": "master", "commit": "ee297f215e95a60b01fde33275cc3c820eddeebe" },
   "nvim-cmp": { "branch": "main", "commit": "f17d9b4394027ff4442b298398dfcaab97e40c4f" },
   "nvim-lspconfig": { "branch": "master", "commit": "87c7c83ce62971e0bdb29bb32b8ad2b19c8f95d0" },
+  "nvim-treesitter": { "branch": "master", "commit": "20e10ca6914f65cf1410232433fb58de70ab6b39" },
+  "nvim-ts-autotag": { "branch": "main", "commit": "e239a560f338be31337e7abc3ee42515daf23f5e" },
   "tokyonight.nvim": { "branch": "main", "commit": "9758827c3b380ba89da4a2212b6255d01afbcf08" }
 }
