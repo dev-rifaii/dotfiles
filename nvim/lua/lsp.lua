@@ -37,6 +37,7 @@ require('lspconfig').jdtls.setup({
       }
   }
 })
+require('lspconfig').ts_ls.setup({})
 
 --Auto complete
 local cmp = require('cmp')
