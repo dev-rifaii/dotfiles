@@ -93,6 +93,9 @@ fi
 
 if $DOTFILES; then
     echo -e "${GREEN}Setting up dotfiles${NC}"
+    for item in *; do
+        mv "$item" ~/.config/
+    done
 else
     echo -e "${YELLOW}--dotfiles flag missing, skipping dotfiles setup${NC}"
 fi
@@ -119,4 +122,5 @@ if grep -q "exec i3" ~/.xinitrc; then
     echo -e "${YELLOW}adding 'exec i3' to ~/.xinitrc${NC}"
     echo "exec i3" >> ~/.xinitrc
 fi
+
 
