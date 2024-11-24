@@ -47,6 +47,7 @@ install 'neovim'
 install 'xclip'
 install 'scrot'
 install 'xidlehook'
+install 'dmenu'
 
 WITHPERSONAL=false
 DOTFILES=false
@@ -94,5 +95,23 @@ if $DOTFILES; then
     echo -e "${GREEN}Setting up dotfiles${NC}"
 else
     echo -e "${YELLOW}--dotfiles flag missing, skipping dotfiles setup${NC}"
+fi
+
+
+if ! grep -q "exec startx" "/etc/profile"; then
+    echo -e "${YELLOW}Adding 'exec startx' to /etc/profile${NC}"
+    
+    # Append the new block to /etc/profile
+    sudo sh -c 'cat <<EOF >> /etc/profile
+
+if [[ "\$(tty)" == "/dev/tty1" ]]; then
+    exec startx
+fi
+EOF'
+fi
+
+if ! grep -q "exec i3" "~/.xinitrc"; then
+    echo "${YELLOW}adding 'exec i3' to ~/.xinitrc${NC}"
+    sudo sh -c 'echo -e "exec i3" >> ~/.xinitrc'
 fi
 
