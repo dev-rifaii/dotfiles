@@ -17,7 +17,7 @@ install () {
         echo -e "${BLUE}$1 is installed${NC}"
     else
         echo -e "${YELLOW}Installing $1${NC}"
-        # yay -S --noconfirm --needed $1
+        yay -S --noconfirm --needed $1
     fi
 }
 
@@ -110,8 +110,13 @@ fi
 EOF'
 fi
 
-if ! grep -q "exec i3" "~/.xinitrc"; then
-    echo "${YELLOW}adding 'exec i3' to ~/.xinitrc${NC}"
-    sudo sh -c 'echo -e "exec i3" >> ~/.xinitrc'
+if ! test -f ~/.xinitrc; then
+    echo -e "${YELLOW}Creating ~/.xinitrc${NC}"
+    touch ~/.xinitrc
+fi
+
+if grep -q "exec i3" ~/.xinitrc; then
+    echo -e "${YELLOW}adding 'exec i3' to ~/.xinitrc${NC}"
+    echo "exec i3" >> ~/.xinitrc
 fi
 
