@@ -87,6 +87,8 @@ if $WITHPERSONAL; then
     install 'jdk17-openjdk'
     install 'lua'
     install 'spotify'
+    install 'bluez'
+    install 'bluez-utils'
 else
     echo -e "${YELLOW}--withpersonal flag missing, skipping personal tools setup${NC}"
 fi
