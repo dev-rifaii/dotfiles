@@ -6,6 +6,7 @@ vim.opt.softtabstop = 4  -- Number of spaces inserted instead of a TAB character
 vim.opt.shiftwidth = 4   -- Number of spaces inserted when indenting
 vim.opt.termguicolors = true
 vim.opt.signcolumn = 'yes'
+vim.wo.wrap = false
 
 require('pm') --loads lazy.nvim
 
@@ -26,6 +27,8 @@ require('nvim-ts-autotag').setup({
 })
 
 require('lsp')
+require('discord-present-conf')
+require('lualine').setup()
 
 function Format_current_buffer()
     vim.lsp.buf.format({ async = true })

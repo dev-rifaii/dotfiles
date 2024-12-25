@@ -84,6 +84,7 @@ if $WITHPERSONAL; then
     install 'docker-compose'
     install 'nodejs'
     install 'intellij-idea-ultimate-edition'
+    install 'intellij-idea-ultimate-edition-jre'
     install 'jdk17-openjdk'
     install 'lua'
     install 'spotify'
