@@ -15,8 +15,8 @@ vim.cmd.colorscheme('tokyonight')
 require('nvim-autopairs').setup({})
 require('nvim-ts-autotag').setup({
     opts = {
-        enable_close = true,      -- Auto close tags
-        enable_rename = true,     -- Auto rename pairs of tags
+        enable_close = true,          -- Auto close tags
+        enable_rename = true,         -- Auto rename pairs of tags
         enable_close_on_slash = false -- Auto close on trailing </
     },
     per_filetype = {
@@ -29,15 +29,5 @@ require('nvim-ts-autotag').setup({
 require('lsp')
 require('discord-present-conf')
 require('lualine').setup()
+require('misc')
 
-function Format_current_buffer()
-    vim.lsp.buf.format({ async = true })
-end
-
-
-vim.api.nvim_set_keymap(
-    "n",                                -- Normal mode
-    "<C-A-l>",                          -- Key combination: Ctrl + Alt + L
-    ":lua Format_current_buffer()<CR>", -- Command to execute
-    { noremap = true, silent = true }   -- Options: No recursive mapping, silent execution
-)
