@@ -37,14 +37,7 @@ require('lspconfig').lua_ls.setup({
         }
     }
 })
-require('lspconfig').jdtls.setup({
-    root_dir = require('lspconfig').util.root_pattern('pom.xml', 'build.gradle', '.git'),
-    settings = {
-        java = {
-            -- Custom settings
-        }
-    }
-})
+
 require('lspconfig').ts_ls.setup({})
 
 --Auto complete

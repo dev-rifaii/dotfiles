@@ -23,6 +23,7 @@ require('lazy').setup({
     { 'hrsh7th/cmp-nvim-lsp' },
     { 'hrsh7th/nvim-cmp' },
     { 'windwp/nvim-autopairs' },
+    { 'mfussenegger/nvim-jdtls' },
     {
         "iamcco/markdown-preview.nvim",
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
