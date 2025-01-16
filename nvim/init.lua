@@ -27,7 +27,6 @@ require('nvim-ts-autotag').setup({
 })
 
 require('lsp')
-require('discord-present-conf')
 require('lualine').setup()
 require('misc')
 

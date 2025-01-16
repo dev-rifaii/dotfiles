@@ -21,6 +21,7 @@ exec_always --no-startup-id xset -dpms
 exec_always --no-startup-id "setxkbmap -layout us,ee -option 'grp:alt_shift_toggle'"
 exec_always --no-startup-id "setxkbmap -option caps:escape"
 
+
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
