@@ -33,7 +33,7 @@ require('lspconfig').lua_ls.setup({
         Lua = {
             diagnostics = {
                 disable = { 'unused-function' },
-            }
+            },
         }
     }
 })

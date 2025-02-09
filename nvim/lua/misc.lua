@@ -56,3 +56,14 @@ vim.api.nvim_set_keymap(
     ":lua Format_current_buffer()<CR>", -- Command to execute
     { noremap = true, silent = true }   -- Options: No recursive mapping, silent execution
 )
+
+--terminal
+vim.keymap.set("n", "<C-s>t", function()
+    vim.cmd.vnew()
+    vim.cmd.term()
+    vim.cmd.wincmd("J")
+    vim.api.nvim_win_set_height(0, 8)
+end)
+
+vim.api.nvim_set_keymap('t', '<C-s>', [[<C-\><C-n>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<Tab>', '<Tab>', { noremap = true, silent = true })
