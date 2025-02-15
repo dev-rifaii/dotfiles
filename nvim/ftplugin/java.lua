@@ -1,9 +1,16 @@
-local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
-print(project_name)
-
 local home = os.getenv("HOME")
-local workspace_dir = home .. '/prog/' .. project_name
 local jdtls_dir = home .. '/prog/eclipse.jdt.ls/org.eclipse.jdt.ls.product/target/repository/'
+local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
+
+local jdtls_setup = require("jdtls.setup")
+
+local root_dir = jdtls_setup.find_root(root_markers)
+local project_name = vim.fn.fnamemodify(root_dir, ":p:h:t")
+local workspace_dir = home .. "/.cache/jdtls/workspace/" .. project_name
+
+--print(project_name)
+--print(root_dir)
+--print(workspace_dir)
 
 local function get_config_dir()
   if vim.fn.has('linux') == 1 then
@@ -31,7 +38,7 @@ local jdtls_config = {
         '-configuration', jdtls_dir .. get_config_dir(),
         '-data', workspace_dir
     },
-    root_dir = vim.fs.root(0, { ".git", "mvnw", "gradlew" }),
+    root_dir = root_dir,
     settings = {
         java = {
             project = {
