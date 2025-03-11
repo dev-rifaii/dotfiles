@@ -42,7 +42,10 @@ local jdtls_config = {
     settings = {
         java = {
             project = {
-                referencedLibraries = { "/home/mo/prog/jmh-test/libs/jmh-core-1.37.jar" }
+                referencedLibraries = {
+                    root_dir .. "/libs/*.jar",
+                    root_dir .. "/lib/*.jar",
+                }
             }
         }
     }
