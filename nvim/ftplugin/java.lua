@@ -41,6 +41,11 @@ local jdtls_config = {
     root_dir = root_dir,
     settings = {
         java = {
+            completion = {
+                favoriteStaticMembers = {
+                    "java.lang.System.out",
+                }
+            },
             project = {
                 referencedLibraries = {
                     root_dir .. "/libs/*.jar",

@@ -48,6 +48,7 @@ install 'xclip'
 install 'scrot'
 install 'xidlehook'
 install 'dmenu'
+install 'ttc-iosevka'
 
 WITHPERSONAL=false
 DOTFILES=false
