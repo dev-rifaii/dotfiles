@@ -10,7 +10,7 @@ vim.wo.wrap = false
 
 require('pm') --loads lazy.nvim
 
-vim.cmd.colorscheme('tokyonight')
+--vim.cmd.colorscheme('tokyonight')
 
 require('nvim-autopairs').setup({})
 require('nvim-ts-autotag').setup({

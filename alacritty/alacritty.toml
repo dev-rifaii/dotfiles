@@ -3,7 +3,7 @@ general.import = [
 ]
 
 [font]
-size = 12.0
+size = 15.0
 
 [font.normal]
 family = "Iosevka"
