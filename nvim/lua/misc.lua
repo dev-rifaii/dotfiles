@@ -3,7 +3,8 @@ require"nvim-util"
 local comment_chars = {
     ["lua"] = "--",
     ["java"] = "//",
-    ["sql"] = "--"
+    ["sql"] = "--",
+    ["swift"] = "//",
 }
 
 local function is_line_commented(line, comment_str)

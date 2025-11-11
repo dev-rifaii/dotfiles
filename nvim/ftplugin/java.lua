@@ -48,8 +48,8 @@ local jdtls_config = {
             },
             project = {
                 referencedLibraries = {
-                    root_dir .. "/libs/*.jar",
-                    root_dir .. "/lib/*.jar",
+                    --root_dir .. "/libs/*.jar",
+                    --root_dir .. "/lib/*.jar",
                 }
             }
         }
