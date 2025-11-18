@@ -18,7 +18,7 @@ font pango:monospace 10
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xrdb -merge ~/.Xresources
-#exec_always --no-startup-id feh --bg-fill ~/.config/wallpapers/temple.jpg
+exec --no-startup-id xrandr --output DP-1 --mode 2560x1440 --rate 164.96
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf -b 
 exec_always --no-startup-id xset s off
 exec_always --no-startup-id xset -dpms
@@ -173,8 +173,6 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-
-for_window [class="Lidget"] sticky enable, floating enable, move to workspace current, lower
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)

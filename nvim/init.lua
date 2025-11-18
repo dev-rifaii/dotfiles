@@ -8,14 +8,47 @@ vim.opt.termguicolors = true
 vim.opt.signcolumn = 'yes'
 vim.wo.wrap = false
 
-if vim.fn.executable("ccls") == 1 then
+local C_LSP_BIN_PATH
+local LUA_LSP_BIN_PATH=vim.fn.expand('$HOME/tools/lua-language-server/bin/lua-language-server')
+
+local function auto_complete(client, bufnr)
+    vim.lsp.completion.enable(true, client.id, bufnr, {
+        autotrigger = true,
+        convert = function(item)
+        return { abbr = item.label:gsub('%b()', '') }
+    end,
+    })
+end
+
+--vim.cmd[[set completeopt+=menuone,noselect,popup]]
+if C_LSP_BIN_PATH or vim.fn.executable("ccls") == 1 then
     vim.lsp.config['c_lsp'] = {
         cmd = { 'ccls' },
         filetypes = { 'c' },
-        root_markers = { 'Makefile' }
+        root_markers = { 'Makefile' },
+        on_attach = auto_complete
     }
-    
+
     vim.lsp.enable('c_lsp')
+end
+
+if LUA_LSP_BIN_PATH or vim.fn.executable("lua_language_server") == 1 then
+    local cmd = LUA_LSP_BIN_PATH or "lua_language_server"
+    vim.lsp.config['lua_lsp'] = {
+        cmd = { cmd },
+        filetypes = { 'lua' },
+        root_markers = { '.git' },
+        on_attach = auto_complete,
+        settings = {
+            Lua = {
+                diagnostics = {
+                    globals = { "vim" }
+                }
+            }
+        }
+    }
+
+    vim.lsp.enable('lua_lsp')
 end
 
 
@@ -35,5 +68,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set({ 'n', 'x' }, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
         vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
         vim.keymap.set('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
+        vim.keymap.set('i', '<c-space>', function()
+          vim.lsp.completion.get()
+        end)
     end,
 })
